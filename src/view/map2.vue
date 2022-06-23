@@ -4,11 +4,11 @@
 
 <script lang="ts">
 import { defineComponent,ref ,reactive,toRefs,onMounted,computed,onBeforeUnmount} from 'vue'
-// import useAmap from '@/hooks/useAmap'
+import useAmap from '@/hooks/useAmap'
 export default defineComponent({
    name:'mapCom2',
    setup(props,context){
-    //  useAmap('mapCom2')
+     useAmap('mapCom2')
    }
 })
 </script>
