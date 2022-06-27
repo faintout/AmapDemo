@@ -6,7 +6,6 @@ export default function (mapId) {
         map:null,
         loca:null,
         AMap:null,
-        gl:null,
     })
 
     onMounted(() => {
@@ -38,21 +37,21 @@ export default function (mapId) {
          state.loca = new Loca.Container({
            map: state.map,
          });
-         var canvas = document.querySelector(`#${mapId} .amap-maps .amap-layers canvas`)
-         state.gl = canvas.getContext('webgl');
-
        }).catch((e) => {
          console.log(e);
        });
     }
-
+    //获取地图上webgl实例并销毁
+    const destroyMapWebgl = ()=>{
+      document.querySelector(`canvas.amap-layer`)?.getContext('webgl')?.getExtension('WEBGL_lose_context')?.loseContext()
+    }
     //在隐藏之前调用 卸载之前
     onBeforeUnmount(() => {
+        destroyMapWebgl()
         //please implement destroy for LayerRender
         state.map.remove(state.map.getLayers(),state.map.getAllOverlays())
         state.map&&state.map.destroy()
         state.map = null
-        state.gl.getExtension('WEBGL_lose_context').loseContext();
     })
 
     return {

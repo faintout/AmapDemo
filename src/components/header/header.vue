@@ -16,13 +16,19 @@ import {
     onMounted,
     onUnmounted,
 } from "vue";
+import { useRouter} from 'vue-router'
 export default defineComponent({
     name: "",
     components: {},
     setup(props, context) {
-
+        const router = useRouter()
+        const num = ref(0)
         onMounted(() => {
-
+            
+            // setInterval(()=>{
+            //     router.push(location.hash.includes('/map2')?'/map1':'/map2')
+            //     console.log(++num.value);
+            // },2000)
         });
         onUnmounted(() => {
 
