@@ -6,6 +6,9 @@ import mapContent2 from '@/view/map2.vue'
 import mapContent3 from '@/view/map3.vue'
 
 
+import setupEmit from '@/view/setupEmit.vue'
+
+
 
 
 const routes: any = [
@@ -38,6 +41,9 @@ const routes: any = [
                 keepAlive: true
             },
         }]
+    },{
+        path:'/emit',
+        component:setupEmit
     }
 ]
 
