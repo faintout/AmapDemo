@@ -20,7 +20,10 @@ const viteConfig = {
         include: ["element-plus/lib/locale/lang/zh-cn"]
     },
     // 生产环境路径，类似webpack的assetsPath
-    base: './',
+    base: '/Amap',
+    build: {
+        outDir: 'Amap',
+      },
     // 打包后目录,默认dist
     outDir: 'dist',
     // 别名配置
